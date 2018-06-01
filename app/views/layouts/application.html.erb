@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Narrater</title>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+    <header>
+      <ul>
+        <%= link_to 'HOME', root_path %>
+        <%= link_to 'つぶやき一覧', narrates_path %>
+        <%= link_to '投稿', new_narrate_path %>
+      </ul>
+    </header>
+
+    <%= yield %>
+
+    <fotter>
+      <p class="fotter_content">tbt's test application</p>
+    </fotter>
+
+  </body>
+</html>

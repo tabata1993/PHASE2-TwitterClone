@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="css/_form.scss">
+
+<div>
+  <%= form_with(model: @narrate,local:true ,url: choose_new_or_edit) do |form| %>
+    <div class="narate_content">
+      <%= form.label :つぶやき： %>
+      <%= form.text_field :content %>
+    </div>
+    <div class="submit">
+      <%= form.submit "投稿" ,:class=>"btn" %>
+    </div>
+  <% end %>

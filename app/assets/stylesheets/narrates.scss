@@ -1,0 +1,42 @@
+body{background-image: url("bac.jpg");
+}
+
+header {
+  width: 100%;
+  background-color: #a38018;
+  height: 90px;
+}
+
+header ul{
+  padding-top: 20px;
+  margin-right: 2px;
+}
+
+header a{
+  color: #ffffff;
+  background-color: #ecaa16;
+  font-size: 40px;
+  border: solid 1px #613b1f;
+  border-radius: 10px;
+}
+
+fotter {
+  width: 100%;
+  background-color: #373008;
+  padding: 20px 0 10px 0;
+  color: #f3f9ec;
+  margin: auto;
+  position: absolute;
+  font-size: 15px;
+  bottom:0;
+  height: 100px;
+}
+
+.fotter_content{
+  text-align: center;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}

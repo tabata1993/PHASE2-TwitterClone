@@ -1,0 +1,8 @@
+<%= form_with(model: @narrate,local: true) do |form| %>
+
+  <% if @narrate.errors.any? %>
+    <div id="error_explanation">
+      <h3   class="alert alert-danger">※つぶやきが空白または140字以上です。再度入力してください。</h3>
+    </div>
+  <% end %>
+<% end %>

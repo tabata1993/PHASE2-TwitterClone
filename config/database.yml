@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  template: template0
+
+development:
+  <<: *default
+  database: narrater_development
+  template: template0
+
+
+test:
+  <<: *default
+  database: narrater_test
+
+
+
+production:
+  <<: *default
+  database: narrater_production
+  username: narrater
+  password: <%= ENV['NARRATER_DATABASE_PASSWORD'] %>

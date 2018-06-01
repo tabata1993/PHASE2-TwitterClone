@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="css/index.css">
+<h3><%= notice %></h3>
+
+<table>
+    <h3 class="navigation">つぶやき一覧</h3>
+
+  <% @narrates.each do |narrate| %>
+    <tr class="content">
+      <td class="icon"><img src="/assets/icon.png"><td>
+      <td class="balloon"><%= narrate.content %></td>
+      <td type="button" class="btn btn-default" ><%= link_to'編集',edit_narrate_path(narrate.id) , data: { confirm: '本当に編集してよろしいですか？' }%></td>
+      <td type="button" class="btn btn-default"><%= link_to '削除',narrate_path(narrate.id) , method: :delete , data: { confirm: '本当に削除してよろしいですか？' }%></td>
+    </tr>
+    <tr class="spacer"></tr>
+  <% end %>
+</table>

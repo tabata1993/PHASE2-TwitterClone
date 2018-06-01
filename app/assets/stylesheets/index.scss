@@ -1,0 +1,56 @@
+.navigation{
+  font-size: 40px;
+  height: 45px;
+  color :#ffffff;
+  background-color: #f4a50c;
+  text-align: center;
+  width: 100%;
+}
+
+table {
+  margin-top: 10px;
+  margin-left: 40px;
+  background-color: rgba(240, 240, 240, 0.5);
+}
+
+.content{
+  height: 80px;
+}
+
+.icon{
+  padding-left: 1px;
+  margin-right: 20px;
+  width: 100px;
+  border-radius: 10px;
+}
+
+.balloon{
+  width: 300px;
+  position: relative;
+  font-size: 2rem;
+  padding: 10px;
+  border: 10px;
+  background-color: #f7e169;
+  border-radius: 10px;
+}
+
+.balloon::before{
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  left: -15px;
+  top: 20px;
+  border-right: 15px solid #f7e169;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+}
+
+.btn{
+  margin-top: 20px;
+}
+
+.spacer{
+  height: 20px;
+}
