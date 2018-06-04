@@ -6,7 +6,7 @@
 
   <% @narrates.each do |narrate| %>
     <tr class="content">
-      <td class="icon"><img src="/assets/icon.png"><td>
+      <td class="icon"><img src="/images/icon.png"><td>
       <td class="balloon"><%= narrate.content %></td>
       <td type="button" class="btn btn-default" ><%= link_to'編集',edit_narrate_path(narrate.id) , data: { confirm: '本当に編集してよろしいですか？' }%></td>
       <td type="button" class="btn btn-default"><%= link_to '削除',narrate_path(narrate.id) , method: :delete , data: { confirm: '本当に削除してよろしいですか？' }%></td>

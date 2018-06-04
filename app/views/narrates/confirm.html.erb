@@ -8,7 +8,7 @@
 <%= form_with(model: @narrate, url: narrates_path,local:true) do |form| %>
   <%= form.hidden_field :content %>
   <div class="confirm_content">
-    <a class="confirm_icon"><img src="/assets/icon.png"></a>
+    <a class="confirm_icon"><img src="/images/icon.png"></a>
     <a class="confirm_balloon"><%= @narrate.content %></a>
   </div>
   <div class="submit">
