@@ -10,18 +10,20 @@
   </head>
 
   <body>
-    <header>
-      <ul>
-        <%= link_to 'HOME', root_path %>
-        <%= link_to 'つぶやき一覧', narrates_path %>
-        <%= link_to '投稿', new_narrate_path %>
-      </ul>
+    <header class="header_area">
+      <div class="container">
+        <ul class="row">
+          <li class="col-sm-8 col-md-2"><%= link_to 'HOME', root_path %></li>
+          <li class="col-sm-8 col-md-2"><%= link_to 'つぶやき', narrates_path %></li>
+          <li class="col-sm-8 col-md-2"><%= link_to '投稿', new_narrate_path %></li>
+        </ul>
+      </div>
     </header>
 
     <%= yield %>
 
-    <fotter>
-      <p class="fotter_content">tbt's test application</p>
+    <fotter class="fotter_area">
+      <p>tbt's test application</p>
     </fotter>
 
   </body>

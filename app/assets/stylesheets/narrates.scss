@@ -1,26 +1,30 @@
 body{background-image: url("/images/bac.jpg");
 }
 
-header {
+.header_area {
   width: 100%;
   background-color: #a38018;
-  height: 90px;
 }
 
-header ul{
+.header_area ul{
   padding-top: 20px;
-  margin-right: 2px;
+  margin-right: 0px;
+  text-align: center;
+  list-style: none;
 }
 
-header a{
+.header_area a{
   color: #ffffff;
   background-color: #ecaa16;
   font-size: 40px;
+  margin-left: 10px;
+  display: block;
+  width: 170px;
   border: solid 1px #613b1f;
   border-radius: 10px;
 }
 
-fotter {
+.fotter_area {
   width: 100%;
   background-color: #373008;
   padding: 20px 0 10px 0;
@@ -32,7 +36,7 @@ fotter {
   height: 100px;
 }
 
-.fotter_content{
+.fotter_area p{
   text-align: center;
 }
 
