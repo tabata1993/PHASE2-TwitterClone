@@ -20,6 +20,16 @@
       </div>
     </header>
 
+    <div class = "login_area" >
+      <% if logged_in? %>
+        <%= link_to "マイページ", user_path(current_user.id) %>
+        <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+      <% else %>
+        <%= link_to "新規登録", new_user_path %>
+        <%= link_to "ログイン", new_session_path %>
+      <% end %>
+    </div>
+
     <%= yield %>
 
     <fotter class="fotter_area">

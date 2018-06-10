@@ -1,5 +1,6 @@
 class NarratesController < ApplicationController
   before_action :set_narrate,only:[:edit,:update,:destroy]
+  before_action :login_sender,only:[:confirm,:create,:new,:edit,:update,:destroy]
 
   def home
   end
@@ -53,6 +54,13 @@ class NarratesController < ApplicationController
 
   def set_narrate
     @narrate = Narrate.find(params[:id])
+  end
+
+  def login_sender
+    if logged_in?
+    else
+      redirect_to new_session_path,notice:"Narraterを使うにはログインしてください"
+    end
   end
 
 end

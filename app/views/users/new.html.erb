@@ -1,0 +1,33 @@
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count,"") %> 件のエラーがあります</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="home_info">
+  <h2>アカウント新規登録</h2>
+
+  <%= form_with(model: @user, local: true) do |f| %>
+    <div class="">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :"password(確認)" %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <div class="">
+      <%= f.submit "作成" ,:class=>"btn btn-default" %>
+    </div>
+  <% end %>
+</div>

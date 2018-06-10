@@ -1,0 +1,19 @@
+<div class="home_info">
+  <% flash.each do |key, value| %>
+       <%= content_tag(:div, value, class: "#{key}") %>
+  <% end %>
+
+  <h1>Log in</h1>
+
+  <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+    <div class= "">
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div class="">
+      <%= f.submit "ログイン" ,:class=>"btn btn-default" %>
+    </div>
+  <% end %>
+</div>
