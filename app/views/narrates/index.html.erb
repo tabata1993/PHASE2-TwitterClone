@@ -5,10 +5,30 @@
 
   <% @narrates.each do |narrate| %>
     <tr class="content">
-      <td class="icon"><img src="/images/icon.png"><td>
+      <td>
+        <p class="icon"><img src="/images/icon.png"></p>
+        <p><%= narrate.user.name %></p>
+      <td>
       <td class="balloon"><%= narrate.content %></td>
-      <td type="button" class="btn btn-default" ><%= link_to'編集',edit_narrate_path(narrate.id) , data: { confirm: '本当に編集してよろしいですか？' }%></td>
-      <td type="button" class="btn btn-default"><%= link_to '削除',narrate_path(narrate.id) , method: :delete , data: { confirm: '本当に削除してよろしいですか？' }%></td>
+      <% if narrate.user == current_user %>
+        <td type="button" class="btn btn-default" >
+          <%= link_to'編集',edit_narrate_path(narrate.id) , data: { confirm: '本当に編集してよろしいですか？' }%>
+        </td>
+        <td type="button" class="btn btn-default">
+          <%= link_to '削除',narrate_path(narrate.id) , method: :delete , data: { confirm: '本当に削除してよろしいですか？' }%>
+        </td>
+      <% else %>
+        <% @favorite = current_user.favorites.find_by(narrate_id: narrate.id) %>
+        <% if @favorite.present? %>
+          <td type="button" class="btn btn-default" >
+            <%= link_to 'お気に入り解除', favorite_path(id: @favorite.id), method: :delete%>
+          <td>
+        <% else %>
+          <td type="button" class="btn btn-info" >
+            <%= link_to 'お気に入りする', favorites_path(narrate_id: narrate.id), method: :post %>
+          <td>
+        <% end %>
+      <% end %>
     </tr>
     <tr class="spacer"></tr>
   <% end %>

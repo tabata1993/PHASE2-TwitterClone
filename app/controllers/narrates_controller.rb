@@ -7,6 +7,7 @@ class NarratesController < ApplicationController
 
   def confirm
     @narrate = Narrate.new(narrate_params)
+    @narrate.user_id = current_user.id
     render :new if @narrate.invalid?
   end
 
@@ -16,6 +17,7 @@ class NarratesController < ApplicationController
 
   def create
     @narrate = Narrate.create(narrate_params)
+    @narrate.user_id = current_user.id
     if @narrate.save
       redirect_to narrates_path,notice:"つぶやきを新しく投稿しました！"
     else
@@ -49,7 +51,7 @@ class NarratesController < ApplicationController
 
   private
   def narrate_params
-    params.require(:narrate).permit(:content)
+    params.require(:narrate).permit(:content, :user_id)
   end
 
   def set_narrate

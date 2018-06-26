@@ -1,3 +1,24 @@
 <h3 class="form_navigation"><%= @user.name %>のページ</h3>
 
 <h3 class="home_info">メールアドレス: <%= @user.email %></h3>
+
+
+
+<table>
+    <h3 class="navigation">お気に入りのつぶやき</h3>
+
+  <% @fav_narrates.each do |narrate| %>
+    <tr class="content">
+      <td>
+        <p class="icon"><img src="/images/icon.png"></p>
+        <p><%= narrate.user.name %></p>
+      <td>
+      <td class="balloon"><%= narrate.content %></td>
+      <% @favorite = current_user.favorites.find_by(narrate_id: narrate.id) %>
+        <td type="button" class="btn btn-info" >
+          <%= link_to 'お気に入り解除', favorite_path(id: @favorite.id), method: :delete%>
+        <td>
+    </tr>
+    <tr class="spacer"></tr>
+  <% end %>
+</table>

@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @fav_narrates = @user.favorite_narrates
   end
 
   private
