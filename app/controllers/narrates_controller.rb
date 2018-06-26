@@ -1,6 +1,6 @@
 class NarratesController < ApplicationController
   before_action :set_narrate,only:[:edit,:update,:destroy]
-  before_action :login_sender,only:[:confirm,:create,:new,:edit,:update,:destroy]
+  before_action :login_sender,only:[:confirm,:index,:create,:new,:edit,:update,:destroy]
 
   def home
   end
