@@ -18,7 +18,9 @@ class NarratesController < ApplicationController
   def create
     @narrate = Narrate.create(narrate_params)
     @narrate.user_id = current_user.id
+    @current_user = current_user
     if @narrate.save
+      ContributeMailer.contribute_mail(@narrate,@current_user).deliver
       redirect_to narrates_path,notice:"つぶやきを新しく投稿しました！"
     else
       render'new'
