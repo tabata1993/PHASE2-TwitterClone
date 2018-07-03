@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  mount_uploader :image, ImageUploader
+
   has_many :narrates
   has_many :favorites,dependent: :destroy
   has_many :favorite_narrates, through: :favorites , source: :narrate

@@ -16,8 +16,17 @@ class UsersController < ApplicationController
     @fav_narrates = @user.favorite_narrates
   end
 
+  def update
+    @user = User.find(params[:id])
+    @user.password = @user.password_digest
+    @user.update(user_params)
+    redirect_to user_path,notice:"アイコンを変更しました！"
+  end
+
+
   private
   def user_params
-    params.require(:user).permit(:name,:email,:password,:password_confirmation)
+    params.require(:user).permit(:name,:email,:password,:password_confirmation,:image, :image_cache)
   end
+
 end

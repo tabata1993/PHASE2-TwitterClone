@@ -6,10 +6,19 @@
   <% @narrates.each do |narrate| %>
     <tr class="content">
       <td>
-        <p class="icon"><img src="/images/icon.png"></p>
+        <% if  narrate.user.image? %>
+          <p class="icon"><%= image_tag narrate.user.image %></p>
+        <% else %>
+          <p class="icon"><img src="/images/icon.png"></p>
+        <% end %>
         <p><%= narrate.user.name %></p>
       <td>
-      <td class="balloon"><%= narrate.content %></td>
+      <td class="balloon"><%= narrate.content %>
+        <% if  narrate.image? %>
+          <p><%= image_tag narrate.image %></p>
+        <% end %>
+      </td>
+
       <% if narrate.user == current_user %>
         <td type="button" class="btn btn-default" >
           <%= link_to'編集',edit_narrate_path(narrate.id) , data: { confirm: '本当に編集してよろしいですか？' }%>
