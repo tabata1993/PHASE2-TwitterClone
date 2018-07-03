@@ -1,7 +1,23 @@
+<h3><%= notice %></h3>
 <h3 class="form_navigation"><%= @user.name %>のページ</h3>
 
 <h3 class="home_info">メールアドレス: <%= @user.email %></h3>
 
+<div class="home_info">
+  <p>現在のアイコン：</p>
+  <% if @user.image? %>
+    <p class="icon"><%= image_tag @user.image %></p>
+  <% else %>
+    <p class="icon"><img src="/images/icon.png"></p>
+  <% end %>
+
+  <p>アイコン画像を変更する：</p>
+  <%= form_with(model: @user, local: true ) do |form| %>
+      <%= form.label :image %>
+      <%= form.file_field :image %>
+      <%= form.submit "変更する" ,:class=>"btn btn-default" %>
+  <% end %>
+</div>
 
 
 <table>
@@ -10,7 +26,11 @@
   <% @fav_narrates.each do |narrate| %>
     <tr class="content">
       <td>
-        <p class="icon"><img src="/images/icon.png"></p>
+        <% if  narrate.user.image? %>
+          <p class="icon"><%= image_tag narrate.user.image %></p>
+        <% else %>
+          <p class="icon"><img src="/images/icon.png"></p>
+        <% end %>
         <p><%= narrate.user.name %></p>
       <td>
       <td class="balloon"><%= narrate.content %></td>

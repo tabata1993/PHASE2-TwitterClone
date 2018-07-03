@@ -35,7 +35,7 @@ class NarratesController < ApplicationController
     end
   end
 
-  def edit
+  def edits
   end
 
   def update
@@ -53,7 +53,7 @@ class NarratesController < ApplicationController
 
   private
   def narrate_params
-    params.require(:narrate).permit(:content, :user_id)
+    params.require(:narrate).permit(:content, :user_id,:image,:image_cache)
   end
 
   def set_narrate
