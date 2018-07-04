@@ -1,27 +1,31 @@
 <h3 class="form_navigation">以下の内容で投稿しますか</h3>
 
-
-<%= form_with(model: @narrate, url: narrates_path,local:true) do |form| %>
-  <%= form.hidden_field :content %>
-  <%= form.hidden_field :image_cache %>
-  <div class="confirm_content">
-    <a class="confirm_icon"><img src="/images/icon.png"></a>
-    <a class="confirm_balloon">
-      <%= @narrate.content %>
-      <% if @narrate.image? %>
-        <p><%= image_tag (@narrate.image) %></p>
-      <% end %>
-    </a>
-  </div>
-  <div class="submit">
-    <%= form.submit "投稿" ,:class=>"btn" %>
-  </div>
-<% end %>
-
-<%= form_with(model: @narrate, url: new_narrate_path,local:true, method: 'get') do |form| %>
-  <div class="submit">
+<div class="confirm_content">
+  <%= form_with(model: @narrate, url: narrates_path,local:true) do |form| %>
     <%= form.hidden_field :content %>
     <%= form.hidden_field :image_cache %>
-    <%= form.submit "戻る", name: 'back' ,:class=>"btn" %>
-  </div>
-<% end %>
+    <% if  @user.image? %>
+      <a class="confirm_icon"><%= image_tag @user.image %></a>
+    <% else %>
+      <a class="confirm_icon"><img src="/images/icon.png"></a>
+    <% end %>
+    <q class="confirm_balloon">
+      <%= @narrate.content %>
+      <% if @narrate.image? %>
+        <p class="confirm_image"><%= image_tag (@narrate.image) %></p>
+      <% end %>
+    </q>
+    <div class="submit">
+      <%= form.submit "投稿" ,:class=>"btn" %>
+    </div>
+  <% end %>
+
+  <%= form_with(model: @narrate, url: new_narrate_path,local:true, method: 'get') do |form| %>
+    <div class="submit">
+      <%= form.hidden_field :content %>
+      <%= form.hidden_field :image_cache %>
+      <%= form.submit "戻る", name: 'back' ,:class=>"btn" %>
+    </div>
+  <% end %>
+
+</div>

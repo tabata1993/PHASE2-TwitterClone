@@ -1,4 +1,5 @@
 body{background-image: url("/images/bac.jpg");
+  margin-bottom: 10px;
 }
 
 .header_area {
@@ -20,7 +21,7 @@ body{background-image: url("/images/bac.jpg");
   margin-left: 10px;
   display: block;
   width: 170px;
-  border: solid 1px #613b1f;
+  border: inset 1px #613b1f;
   border-radius: 10px;
 }
 
@@ -48,6 +49,7 @@ body{background-image: url("/images/bac.jpg");
   padding: 20px 0 10px 0;
   color: #f3f9ec;
   margin: auto;
+  margin-top: 10;
   position: absolute;
   font-size: 15px;
   bottom:0;
