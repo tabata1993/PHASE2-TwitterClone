@@ -8,29 +8,46 @@
 }
 
 table {
-  margin: 10px 10px 100px 40px;
+  margin: 5px 10px 100px 40px;
   background-color: rgba(240, 240, 240, 0.5);
 }
 
 .content{
   height: 80px;
+  margin: 10px;
+  border-bottom: solid 1px #9b9c98;
 }
 
 .icon{
-  padding-left: 1px;
+  padding-left: 6px;
   margin-right: 20px;
-  width: 100px;
+  width: 80px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.user_name{
+  color: #ffffff;
+  background-color: rgba(218, 158, 7, 0.91);
+  border: outset 0.1px #c7bc2b;
   border-radius: 10px;
+  width: 60px;
+  text-align: center;
+  word-wrap: break-word;
 }
 
 .balloon{
-  width: 300px;
   position: relative;
   font-size: 2rem;
+  width: 300px;
   padding: 10px;
   border: 10px;
   background-color: #f7e169;
   border-radius: 10px;
+}
+.balloon p{
+  width: 300px;
+  word-wrap: break-word;
 }
 
 .balloon::before{
@@ -38,7 +55,8 @@ table {
   position: absolute;
   display: block;
   width: 0;
-  height: 0;
+  display: table-cell;
+  vertical-align: middle;
   left: -15px;
   top: 20px;
   border-right: 15px solid #f7e169;
@@ -46,8 +64,14 @@ table {
   border-bottom: 15px solid transparent;
 }
 
+.content_image{
+  float: bottom;
+}
+
 .btn{
   margin-top: 20px;
+  margin-bottom: 10px;
+  margin-right: 5px;
 }
 
 .spacer{

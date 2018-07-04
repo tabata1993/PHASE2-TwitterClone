@@ -11,11 +11,12 @@
         <% else %>
           <p class="icon"><img src="/images/icon.png"></p>
         <% end %>
-        <p><%= narrate.user.name %></p>
+        <p class="user_name"><%= narrate.user.name %></p>
       <td>
-      <td class="balloon"><%= narrate.content %>
+      <td class="balloon">
+        <p><%= narrate.content %></p>
         <% if  narrate.image? %>
-          <p><%= image_tag narrate.image %></p>
+          <p class="content_image"><%= image_tag narrate.image %></p>
         <% end %>
       </td>
 
@@ -29,11 +30,11 @@
       <% else %>
         <% @favorite = current_user.favorites.find_by(narrate_id: narrate.id) %>
         <% if @favorite.present? %>
-          <td type="button" class="btn btn-default" >
+          <td type="button" class="btn btn-info" >
             <%= link_to 'お気に入り解除', favorite_path(id: @favorite.id), method: :delete%>
           <td>
         <% else %>
-          <td type="button" class="btn btn-info" >
+          <td type="button" class="btn btn-default" >
             <%= link_to 'お気に入りする', favorites_path(narrate_id: narrate.id), method: :post %>
           <td>
         <% end %>

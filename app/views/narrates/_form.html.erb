@@ -3,13 +3,22 @@
       <%= form.label :つぶやき： %>
       <%= form.text_field :content %>
     </div>
-    <div class="narate_content">
-      <%= form.label :画像ああ： %>
+    <div class="narate_image">
+      <% if @narrate.image.url %>
+        <label> 画像：</label>
+        <P><%= @narrate.image.url%><p>
+        <div>
+          <%= form.label :画像を変更する： %>
+          <%= form.file_field :image %>
+          <%= form.hidden_field :image_cache %>
+        </div>
+      <% else %>
+      <%= form.label :画像： %>
       <%= form.file_field :image %>
+      <% end %>
     </div>
 
     <div class="submit">
       <%= form.submit "投稿" ,:class=>"btn btn-default" %>
     </div>
-
   <% end %>

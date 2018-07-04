@@ -7,6 +7,7 @@ class NarratesController < ApplicationController
 
   def confirm
     @narrate = Narrate.new(narrate_params)
+    @user = current_user
     @narrate.user_id = current_user.id
     render :new if @narrate.invalid?
   end
